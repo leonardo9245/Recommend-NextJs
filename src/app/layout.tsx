@@ -5,13 +5,12 @@ import { FilterContextProvider } from '@/context/filter-context'
 
 const saira = Saira({
   subsets: ['latin'],
-  display: 'block',
+  display: 'swap',
   weight: ['300', '400', '500', '700'],
   variable: '--font-saira',
 })
 const sairaStencilOne = SairaStencilOne({
   subsets: ['latin'],
-  display: 'swap',
   weight: '400',
   variable: '--font-Logo',
 })

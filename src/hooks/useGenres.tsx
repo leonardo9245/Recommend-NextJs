@@ -11,15 +11,14 @@ export function useGenres(type: filterType) {
   const [genres, setGenres] = useState<Genre[]>([])
 
   useEffect(() => {
-    const typeGenre = type === filterType.MOVIE ? 'movie' : 'tv'
-
     const fetchGenres = async () => {
+      const typeGenre = type === filterType.MOVIE ? 'movie' : 'tv'
       try {
         const response = await api.get(
           `/genre/${typeGenre}/list?language=pt-BR`,
           {
             headers: {
-              Authorization: `Bearer ${process.env.AUTHORIZATION_API}`,
+              Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
             },
           },
         )

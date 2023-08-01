@@ -1,16 +1,10 @@
 'use client'
 import { useFilter } from '@/hooks/useFilter'
-import { useGenres } from '@/hooks/useGenres'
 import { filterType } from '@/types/filter-type'
-
-interface Genre {
-  id: string
-  name: string
-}
+import { Form } from './form'
 
 export default function Options() {
   const { type, setType } = useFilter()
-  const genres = useGenres(type)
 
   const handleOptionClick = (value: filterType) => {
     setType(value)
@@ -40,21 +34,7 @@ export default function Options() {
           Séries
         </li>
       </ul>
-      <form>
-        <select
-          defaultValue="select-genre"
-          className="text- rounded-md bg-unselectedColor px-2 py-[2px] font-sans text-selectedColor"
-          onChange={(val) => console.log(val.target.value)}
-        >
-          <option value="select-genre">Selecione um Gênero</option>
-          {genres.map((val: Genre) => (
-            <option key={val.id} value={val.id}>
-              {val.name}
-            </option>
-          ))}
-        </select>
-      </form>
-
+      <Form />
       <button className="rounded-md bg-selectedColor px-4 py-[2px] font-sans font-bold">
         Buscar
       </button>
